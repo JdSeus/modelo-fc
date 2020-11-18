@@ -19,3 +19,8 @@ A entrega do teste deve conter um README informando o que foi utilizado, veja o 
 * PHP 5.4
 * Bootstrap 4
 * jQuery 3
+
+Está sendo utilizado:
+
+*Bootstrap 4.1.3
+*Jquery 3.5.1
