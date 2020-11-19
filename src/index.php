@@ -4,6 +4,7 @@
 * É recomendado que todo o carregamente seja feito apartir desse arquivo.
 */
     include_once("model/Sql.php");
+    include_once("model/Model.php");
 
     $dado = new Sql();
 
@@ -17,9 +18,25 @@
     ));
     */
 
-    $results = $dado->select("SELECT * FROM medico ORDER BY id");
+    /*$results = $dado->select("SELECT * FROM medico ORDER BY id");
 
-    echo json_encode($results);
+    echo json_encode($results);*/
 
+    /*
+    $teste = new Model();
+
+    $data = array(
+      'nome' => 'Alex',
+      'fruta' => 'Abacaxi',
+      'carro' => 'gol',
+      'peso' => '85',
+    );
+
+    $teste->setData($data);
+
+    $teste->getValues();
+
+    print_r($teste);
+    */
     
 ?>
