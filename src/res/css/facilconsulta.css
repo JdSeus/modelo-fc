@@ -45,6 +45,18 @@ nav button {
 
 }
 
+nav button:hover {
+    background-color: #004768;
+    color: #fff;
+
+}
+
+nav button:active {
+    background-color: #004768;
+    color: #fff;
+
+}
+
 form h1 {
     white-space: nowrap;
     font-size: 1.5em;
@@ -127,6 +139,14 @@ form button {
 
 }
 
+form button:hover {
+    background-color: #004768;
+}
+
+form button:active {
+    background-color: #004768;
+}
+
 form a {
     display: block;
     
@@ -192,16 +212,17 @@ div .lista-medicos {
 
 }
 
+
 .horarios ul {
     padding:0;
     margin:0 auto;
     list-style:none;
     text-align: center;
+
 }
 
 
 .horarios ul li {
-
     display: inline-block;
     white-space: nowrap;
 
@@ -214,8 +235,7 @@ div .lista-medicos {
 
 }
 
-.horarios ul li button {
-        
+.horarios ul li button {    
     border: 1px solid transparent;
     border-radius: 5px;
     
@@ -229,6 +249,72 @@ div .lista-medicos {
 
     text-align: justify;
 }
+
+div .horarios-cadastrados {
+    margin-top: 2em;
+    background-color: #fff;
+    width: 100%;
+}
+
+.horarios-cadastrados h1 {
+    display: block;
+    white-space: nowrap;
+
+    width: auto;
+
+    text-align: center;
+    
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+
+    color: #004768;
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+
+.horarios-configurados ul{
+    padding:0;
+    margin:0 auto;
+    list-style:none;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.horarios-configurados ul li {
+    white-space: nowrap;
+
+    border-bottom: 1px solid rgb(170,170,170);;
+
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    color: #004768;
+
+    overflow: hidden;
+
+}
+
+.horarios-configurados ul li p {
+    float: left;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+.horarios-configurados ul li a {
+    color: red;
+    float: right;
+    margin-right: 1em;
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+
+.horarios-configurados ul li a:hover {
+    color: #aa0000;
+}
+
+
 
  /*Small devices (landscape phones, 576px and up)*/
  @media (min-width: 576px) { 
@@ -244,13 +330,18 @@ div .lista-medicos {
         margin: 0 auto;
     }
 
+    div .horarios-cadastrados {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 2em;
+        margin-bottom: 3em;
+    }
 
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     
-
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -301,6 +392,27 @@ div .lista-medicos {
         font-size: 0.8em;
     }
 
+    .form-left {
+        float: left;
+        margin-left: 9%;
+    }
+
+    .horarios-cadastrados div {
+
+    }
+    
+    div .horarios-cadastrados {
+        float: right;
+        width: 40%;
+        margin-top: 0;
+        margin-right: 9%;
+    }
+
+    .horarios-configurados {
+        margin-top: 0;
+    }
+    
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -309,6 +421,16 @@ div .lista-medicos {
     form {
         width: 25%;
         margin: 0 auto;
+    }
+
+    .form-left {
+        width: 30%;
+        margin-left: 19%;
+    }
+
+    div .horarios-cadastrados {
+        width: 30%;
+        margin-right: 19%;
     }
 
     .lista-medicos {
