@@ -114,20 +114,42 @@ form a {
 
 }
 
-.medico div h1 {
+.medico h1 {
     display: block;
     width: auto;
     white-space: nowrap;
     font-size: 1.1em;
     font-weight: bolder;
-    text-align: left;
+    text-align: center;
     color: #004768;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
 }
 
-.medico div button {
+.medico button {
+
+    display: block;
     white-space: nowrap;
+
+    width: auto;
+    height: 2em;
+
+    border: 2px solid #0094CF;
+    border-radius: 5px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    padding-left: 1em;
+    padding-right: 1em;
+
+    color: #0094CF;
+    background-color:#fff;
+    font-size: 1em;
 }
 
 .medico div:after {
@@ -166,7 +188,20 @@ form a {
 */
  /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) { 
+    .medico h1 {
+        text-align: left;
+    }
 
+    .medico button {
+        font-size: 0.6em;
+        display: block;
+        white-space: nowrap;
+        float: right;
+    }
+
+    .medico button::before {
+        margin-top: 1em;
+    }
  }
 
 /* Small devices (tablets, 768px and up) */
