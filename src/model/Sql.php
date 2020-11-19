@@ -68,6 +68,7 @@ class Sql {
         $stmt->execute();
     }
 
+    //Semelhante ao método Query, porém retorna um array associativo.
     public function select($query, $params = array()):array
     {
         $stmt = $this->conn->prepare($query);

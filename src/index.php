@@ -5,10 +5,24 @@
 */
     include_once("model/Sql.php");
     include_once("model/Model.php");
+    include_once("model/Medico.php");
 
     $dado = new Sql();
 
     $agora = SUNFUNCS_RET_TIMESTAMP;
+
+
+    print_r(Medico::listAll());
+/*
+    $medico->setemail("email@teste.com");
+    $medico->setnome("Alexandre o Medico");
+    $medico->setsenha("123456");
+
+    $medico->save();
+
+    print_r($medico->getValues());
+*/
+
     
     /*$dado->query("INSERT INTO medico (email, nome, senha) VALUES (:EMAIL, :NOME, :SENHA)", 
     array(
