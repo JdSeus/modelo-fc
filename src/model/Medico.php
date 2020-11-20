@@ -11,6 +11,11 @@ class Medico extends Model {
         return $data;
     }
 
+    public static function criptoPassword($password)
+    {
+        return md5($password);
+    }
+
     public function getMedico($id)
     {
         $sql = new Sql();
@@ -22,6 +27,7 @@ class Medico extends Model {
         $this->setData($data[0]);
 
     }
+
 
     public function save()
     {
