@@ -1,56 +1,19 @@
 <?php
 
-/*
-* É recomendado que todo o carregamente seja feito apartir desse arquivo.
-*/
-    include_once("model/Sql.php");
-    include_once("model/Model.php");
-    include_once("model/Medico.php");
+spl_autoload_register(function ($class_name) {
+  if (file_exists('model/'. $class_name . '.php')) {
+      require_once('model/'. $class_name . '.php');
 
-    $dado = new Sql();
+  } else if (file_exists('controller/'. $class_name . '.php')) {
+      require_once('controller/'. $class_name . '.php');
 
-    $agora = SUNFUNCS_RET_TIMESTAMP;
+  } else if (file_exists('view/'. $class_name . '.php')) {
+    require_once('view/'. $class_name . '.php');
 
+}
+});
 
-    print_r(Medico::listAll());
-/*
-    $medico->setemail("email@teste.com");
-    $medico->setnome("Alexandre o Medico");
-    $medico->setsenha("123456");
+require_once("functions.php");
+require_once("Routes.php");
 
-    $medico->save();
-
-    print_r($medico->getValues());
-*/
-
-    
-    /*$dado->query("INSERT INTO medico (email, nome, senha) VALUES (:EMAIL, :NOME, :SENHA)", 
-    array(
-      ":EMAIL" => "a@a.com",  
-      ":NOME" => "alex",
-      ":SENHA" => "senha1"
-    ));
-    */
-
-    /*$results = $dado->select("SELECT * FROM medico ORDER BY id");
-
-    echo json_encode($results);*/
-
-    /*
-    $teste = new Model();
-
-    $data = array(
-      'nome' => 'Alex',
-      'fruta' => 'Abacaxi',
-      'carro' => 'gol',
-      'peso' => '85',
-    );
-
-    $teste->setData($data);
-
-    $teste->getValues();
-
-    print_r($teste);
-    */
-    
 ?>

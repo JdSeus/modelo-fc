@@ -168,7 +168,6 @@ form a {
 
 div .lista-medicos {
     margin-bottom: 1em;
-    padding-bottom: 3em;
 }
 
 .infomedico div h1 {
@@ -212,6 +211,7 @@ div .lista-medicos {
     font-size: 1em;
 
 }
+
 
 .horarios ul {
     padding:0;

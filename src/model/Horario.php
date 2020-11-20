@@ -1,21 +1,21 @@
 <?php
 
-class Medico extends Model {
+class Horario extends Model {
 
     public static function listAll()
     {
         $sql = new Sql();
 
-        $data = $sql->select("SELECT * FROM medico");
+        $data = $sql->select("SELECT * FROM horario");
 
         return $data;
     }
 
-    public function getMedico($id)
+    public function getHorario($id)
     {
         $sql = new Sql();
 
-        $data = $sql->select("SELECT * FROM medico WHERE id = :id", array(
+        $data = $sql->select("SELECT * FROM horario WHERE id = :id", array(
             ':id' => $id
         ));
 
@@ -27,7 +27,7 @@ class Medico extends Model {
     {
         $sql = new Sql();
 
-        $results = $sql->query("INSERT INTO medico (email, nome, senha, data_criacao) VALUES (:email, :nome, :senha, CURRENT_TIMESTAMP(6))", array(
+        $results = $sql->query("INSERT INTO horario (id_medico, data_horario, horario_agendado, data_criacao) VALUES (:id_medico, :data_horario, 0, CURRENT_TIMESTAMP(6))", array(
             ':email' => $this->getemail(),
             ':nome' => $this->getnome(),
             ':senha' => $this->getsenha(),
