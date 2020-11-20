@@ -1,11 +1,10 @@
 <?php
 
     $medicos = $_REQUEST['medicos'];
-   
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +20,7 @@
     <div class="container-fluid">
         <nav>
             <div>
-                <button>Cadastro de Medico</button>
+                <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
         </nav>
 
@@ -36,7 +35,7 @@
                     </div>
                     <div class="infobuttons">
                         <a><button>Configurar Horários</button></a>
-                        <a href="view/editar-cadastro-medico.html"><button>Editar Cadastro</button></a>
+                        <a href="view/editar-cadastro-medico.html"><button>Editar Cadastro <?php echo $medico['id'] ?></button></a>
                     </div>
                 </div>
                 <div class="horarios">

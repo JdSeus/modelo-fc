@@ -1,17 +1,13 @@
 <?php
 
 Route::set('index.php', function() {
-    echo "teste";
-    //Index::createView('Index');
+    $_REQUEST['medicos'] = Medico::listAll();
+    Home::createView('listagem-medicos-horarios');
 });
 
-Route::set('about-us', function() {
-    echo "aaaaaaaaaaaaaaaa";
-    //AboutUs::createView('AboutUs');
-});
-
-Route::set('contact-us', function() {
-   // ContactUs::createView('ContactUs');
+Route::set('cadastro-medico', function() {
+    $_REQUEST['medicos'] = Medico::listAll();
+    Home::createView('cadastro-medico');
 });
 
 ?>
