@@ -1,9 +1,10 @@
 @font-face {
     font-family: signika;
-    src: url('../../res/fonts/Signika/Signika-VariableFont_wght.ttf');
+    src: url('res/fonts/Signika/Signika-VariableFont_wght.ttf');
 }
 
 body {
+    background-color: red;
     background-color: rgb(239, 239, 239);
     font-family: signika, Arial, Helvetica, sans-serif;
     font-size: 1.3em;
@@ -57,6 +58,13 @@ nav button:active {
 
 }
 
+form {
+    margin-top: 3em;
+    padding-top: 1em;
+    background-color: #ffffff;
+
+}
+
 form h1 {
     white-space: nowrap;
     font-size: 1.5em;
@@ -64,13 +72,6 @@ form h1 {
     text-align: center;
     color: #004768;
     padding-bottom: 0.5em;
-
-}
-
-form {
-    margin-top: 3em;
-    padding-top: 1em;
-    background-color: #ffffff;
 
 }
 
@@ -324,6 +325,24 @@ div .horarios-cadastrados {
     height: auto;
 }
 
+form div.message p{
+    margin: 0 auto;
+    margin-bottom: 0;
+    margin-top: 1em;
+
+    text-align: center;
+    padding-top: 0.5em;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    color: #fff;
+    background-color: #dd5858;
+    
+    width: 75%;
+    height: 3em;
+    
+}
 
 
  /*Small devices (landscape phones, 576px and up)*/

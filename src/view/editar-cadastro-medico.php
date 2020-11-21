@@ -2,6 +2,19 @@
 
     $medico = $_REQUEST['medico'];
     //print_r($medico);
+
+    if (isset($_POST['erro']))
+    {
+        $erro = $_POST['erro'];
+        echo $erro;
+        echo "<br>";
+    }
+    else
+    {
+        $erro = 0;
+        echo "sem erros";
+        echo "<br>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +40,7 @@
                     <h1>Editar médico</h1>
                     <div>
                         <label for="form-name">Nome</label>
-                        <input id="form-name" name="form-name" type="text" placeholder="Insira o nome do profissional" value=<?php echo $medico->getnome() ?>  maxlength="255"
+                        <input id="form-name" name="form-name" type="text" placeholder="Insira o nome do profissional" value="<?php echo $medico->getnome() ?>"  maxlength="255"
                             required minlength="6">
                     </div>
                     <div>
@@ -40,6 +53,17 @@
                         <input id="form-new-password" name="form-new-password" type="password"
                             placeholder="Escolha uma nova senha forte e segura" maxlength="255" required minlength="6">
                     </div>
+
+                    <?php
+                    if ($erro !== 0) {
+                        ?>
+                        <div class="message">
+                        <p><?php echo $erro ?></p>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
                     <div>
                         <input id="id" name="id" type="hidden" value=<?php echo $medico->getid() ?>>
                         <button type="submit">Atualizar Cadastro</button>

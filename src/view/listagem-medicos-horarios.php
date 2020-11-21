@@ -32,7 +32,7 @@
                     <div>
     
                         <form class="infobutton" action="editar-cadastro-medico" method="POST">
-                            <input type="hidden" name="id" value= <?php echo $medico["id"]; ?>></input>
+                            <input type="hidden" name="id" value= "<?php echo $medico["id"]; ?>"></input>
                             <button>Editar Cadastro</button>
                         </form>
 

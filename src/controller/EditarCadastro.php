@@ -90,7 +90,7 @@ class EditarCadastro extends Controller {
 
         $medico->setsenha($new_password);
 
-        $medico->save();
+        $medico->update();
 
 
     }

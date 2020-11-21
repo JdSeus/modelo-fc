@@ -47,7 +47,7 @@ Route::set("editar-cadastro-medico", function() {
 });
 
 Route::set('editar-cadastro-medico-post', function() {
-    
+
     print_r($_POST);
     if (!empty($_POST)) 
     {
@@ -59,12 +59,19 @@ Route::set('editar-cadastro-medico-post', function() {
         $atualizarCadastro = new EditarCadastro();
         $atualizarCadastro->updateCadastro($name, $pastpassword, $newpassword, $id);
 
-        if ($atualizarCadastro->geterro() !== null)
+        $erro = $atualizarCadastro->geterro();
+
+        if ($erro !== null)
         {
             echo "<br>";
-            //echo $atualizarCadastro->geterro();
-           // header("Location: editar-cadastro-medico");
-            //exit;
+            echo "aaaaaaa";
+            echo "<br>";
+            echo "<br>";
+            $params = array(
+                "erro" => $erro,
+                "id" => $id
+            );
+            Route::postAndGo("editar-cadastro-medico",$params); 
         }
         else
         {
