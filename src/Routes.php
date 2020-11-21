@@ -7,7 +7,7 @@ Route::set('index.php', function() {
 });
 
 Route::set('cadastro-medico', function() {
-    ControllerCadastro::createView('cadastro-medico');
+    CadastroMedico::createView('cadastro-medico');
 });
 
 Route::set('cadastro-medico-post', function() {
@@ -16,26 +16,71 @@ Route::set('cadastro-medico-post', function() {
     $email = $_POST['form-email'];  
     $password = $_POST['form-password'];  
 
-    $cadastro = new ControllerCadastro($name, $email, $password);
+    $cadastro = new CadastroMedico();
+    $cadastro->makeNewCadastro($name, $email, $password);
+
+    header("Location: index.php");
+    exit;
 
 });
 
+Route::set("editar-cadastro-medico", function() {
 
-Route::set('teste', function() {
-    ?>
-    <!DOCTYPE html>
+    print_r($_POST);
+    if (!empty($_POST))
+    {
+        $idmedico = $_POST['id'];
+
+        $medico = new Medico();
+        $medico->getMedico($idmedico);
+
+        $_REQUEST['medico'] = $medico;
+        Home::createView('editar-cadastro-medico');
+
+    }
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
     
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-
-        <!-- Meu Estilo -->
-        <link rel="stylesheet" href="res/css/facilconsulta.css" type="text/css">
-    </head>
-    <body>
-        <h1>Teste</h1>
-    </body>
-    <?php
 });
+
+Route::set('editar-cadastro-medico-post', function() {
+    
+    print_r($_POST);
+    if (!empty($_POST)) 
+    {
+        $name = $_POST['form-name'];
+        $pastpassword = $_POST['form-past-password'];
+        $newpassword = $_POST['form-new-password'];
+        $id = $_POST['id'];
+
+        $atualizarCadastro = new EditarCadastro();
+        $atualizarCadastro->updateCadastro($name, $pastpassword, $newpassword, $id);
+
+        if ($atualizarCadastro->geterro() !== null)
+        {
+            echo "<br>";
+            //echo $atualizarCadastro->geterro();
+           // header("Location: editar-cadastro-medico");
+            //exit;
+        }
+        else
+        {
+            header("Location: index.php");
+            exit;
+        }
+    }
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
+
+
+
+});
+
 
 ?>

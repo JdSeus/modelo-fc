@@ -1,46 +1,45 @@
 <?php
 
-class ControllerCadastro extends Controller {
+class CadastroMedico extends Controller {
 
     private $name;
     private $email;
     private $password;
 
-    private $erro = true;
-   
-    public function __construct($form_name, $form_email, $form_password) {
-        $this->name = $form_name;
-        $this->email = $form_name;
-        $this->password = $form_name;
+    private $minlenght = false;
 
-        if ($this->findError() == false)
+    public function makeNewCadastro($form_name, $form_email, $form_password) {
+        $this->name = $form_name;
+        $this->email = $form_email;
+        $this->password = $form_password;
+
+        if ($this->checklenghts() == true)
         {
-          //  $this->registerMedico($this->name,$this->email,$this->password);
-            echo "medico registrado";
+            $this->registerMedico($this->name,$this->email,$this->password);
         }
+        
     }
 
-    public function findError() {
+    public function checkLenghts() {
         
         if (strlen($this->name) < 6) {
-            $this->erro = true;
+            return false;
         }
         else
         {
             if (strlen($this->email) < 6) {
-                $this->erro = true;
+                return false;
             }
             else
             {
                 if (strlen($this->password) < 6) {
-                    $this->erro = true;
+                    return false;
+                }
+                else
+                {
+                    return true;
                 }
             }
-        }
-
-        if ($this->erro == 0)
-        {
-            $this->erro = false;
         }
 
     }

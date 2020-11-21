@@ -7,13 +7,9 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="res/css/bootstrap.min.css" type="text/css">
-    <!-- Meu Estilo -->
-    <link rel="stylesheet" href="res/css/facilconsulta.css" type="text/css">
+<?php 
+    getMetaAndStyle();
+?>
 </head>
 
 <body>
@@ -33,9 +29,19 @@
                     <div>
                         <h1><?php echo $medico['nome']; ?></h1>
                     </div>
-                    <div class="infobuttons">
-                        <a><button>Configurar Horários</button></a>
-                        <a href="view/editar-cadastro-medico.html"><button>Editar Cadastro <?php echo $medico['id'] ?></button></a>
+                    <div>
+    
+                        <form class="infobutton" action="editar-cadastro-medico" method="POST">
+                            <input type="hidden" name="id" value= <?php echo $medico["id"]; ?>></input>
+                            <button>Editar Cadastro</button>
+                        </form>
+
+                            
+                        <form class="infobutton" action="adicionar-remover-horario" method="POST">
+                            <input type="hidden" name="medico" value= "<?php $medico["id"]; ?>"></input>
+                            <button>Configurar Horários</button>
+                        </form>
+
                     </div>
                 </div>
                 <div class="horarios">
@@ -52,16 +58,10 @@
 
         </main>
 
-
     </div>
-
-    <!-- FIM DO CÓDIGO -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="res/js/jquery-3.5.1.js"></script>
-    <script src="res/js/bootstrap.js"></script>
-
-    <!-- Meu Código -->
-    <script src="res/js/myjs.js" type="text/javascript"></script>
+<?php
+    getJavaScript();
+?>
 
 </body>
 

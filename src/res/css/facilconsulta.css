@@ -171,6 +171,7 @@ div .lista-medicos {
     padding-bottom: 3em;
 }
 
+
 .infomedico div h1 {
     display: block;
     white-space: nowrap;
@@ -314,6 +315,15 @@ div .horarios-cadastrados {
     color: #aa0000;
 }
 
+ form.infobutton {
+     
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
 
 
  /*Small devices (landscape phones, 576px and up)*/
@@ -362,7 +372,6 @@ div .horarios-cadastrados {
         overflow: hidden;
     }
 
-
     .infomedico div h1 {
         float: left;
 
@@ -371,8 +380,22 @@ div .horarios-cadastrados {
         margin-top: 0.5em;
     }
 
-    .infomedico button {
+    .infomedico div:nth-child(2){
         float: right;
+    }
+
+    form.infobutton {
+     
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
+
+    .infomedico button {
+
+        display: inline-block;
 
         margin-bottom: 1em;
         margin-right: 2em;
@@ -383,11 +406,6 @@ div .horarios-cadastrados {
         font-size: 0.6em;
     }
 
-
-    .infobuttons {
-        text-align: center;
-    }
-
     .horarios li {
         font-size: 0.8em;
     }
@@ -395,10 +413,6 @@ div .horarios-cadastrados {
     .form-left {
         float: left;
         margin-left: 9%;
-    }
-
-    .horarios-cadastrados div {
-
     }
     
     div .horarios-cadastrados {
