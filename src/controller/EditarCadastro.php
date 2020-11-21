@@ -25,7 +25,7 @@ class EditarCadastro extends Controller {
         {
             if ($this->comparePasswords($this->past_password))
             {
-                $this->updateMedico($this->name, $this->new_password);
+                $this->updateMedico();
             }
             else
             {
@@ -66,7 +66,9 @@ class EditarCadastro extends Controller {
     public function comparePasswords($password) {
 
         $medico = new Medico();
+
         $medico->getMedico($this->id_medico);
+
         $passwordOnDb = $medico->getsenha();
 
         if (Medico::criptoPassword($password) == $passwordOnDb)
@@ -80,13 +82,15 @@ class EditarCadastro extends Controller {
 
     }
 
-    public function updateMedico($name, $new_password) {
+    public function updateMedico() {
 
         $medico = new Medico();
 
-        $medico->setnome($name);
+        $medico->getMedico($this->id_medico);
 
-        $new_password = Medico::criptoPassword($new_password);
+        $medico->setnome($this->name);
+
+        $new_password = Medico::criptoPassword($this->new_password);
 
         $medico->setsenha($new_password);
 
