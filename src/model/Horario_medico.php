@@ -69,7 +69,7 @@ class Horario_medico extends Model {
 
         $results = $sql->query(
         "
-        DELETE FROM medico
+        DELETE FROM horario
         WHERE id = :id
         ",
         array (

@@ -90,6 +90,7 @@ Route::set('editar-cadastro-medico-post', function() {
             //Para poder entrar no editar-cadastro é necessário o indice, por isso foi utilizado o método postAndGo.
             //Além disso, foi mandado o erro pelo post, de modo que o editar-cadastro mostrará o erro que ocorreu.
             Route::postAndGo("editar-cadastro-medico",$params); 
+            exit; 
         }
         //Caso o médico tenha sido editado com sucesso, o usuário será mandado para o index.
         else
@@ -121,7 +122,7 @@ Route::set('adicionar-remover-horario', function() {
 
 });
 
-Route::set('adicionar-remover-horario-post', function() {
+Route::set('adicionar-horario-post', function() {
     //Condição para só ser possível vir aqui se for pelo formulário do adicionar-remover-horario.
     if (!empty($_POST))
     {
@@ -131,6 +132,41 @@ Route::set('adicionar-remover-horario-post', function() {
     
         $horario = new Horario_medico();
         $horario->save($id_medico, $hr);
+
+        $params = array(
+            "id_medico" => $id_medico
+        );
+
+        Route::postAndGo("adicionar-remover-horario",$params);
+        exit; 
+    }
+    //Caso alguém tente acessar direto, vai ser redirecionado.
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
+
+});
+
+Route::set('remover-horario-post', function() {
+    //Condição para só ser possível vir aqui se for pelo formulário do adicionar-remover-horario.
+    if (!empty($_POST))
+    {
+        $id_horario = $_POST["id_horario"];
+        $id_medico = $_POST["id_medico"];
+
+        $horario = new Horario_medico();
+        $horario->getHorario($id_horario);
+        $horario->delete();
+
+        $params = array(
+            "id_medico" => $id_medico
+        );
+
+        Route::postAndGo("adicionar-remover-horario",$params);
+        exit; 
+
     }
     //Caso alguém tente acessar direto, vai ser redirecionado.
     else
