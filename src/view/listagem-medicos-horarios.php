@@ -38,7 +38,7 @@
 
                             
                         <form class="infobutton" action="adicionar-remover-horario" method="POST">
-                            <input type="hidden" name="medico" value= "<?php $medico["id"]; ?>"></input>
+                            <input type="hidden" name="id_medico" value= "<?php echo $medico["id"]; ?>"></input>
                             <button>Configurar Horários</button>
                         </form>
 

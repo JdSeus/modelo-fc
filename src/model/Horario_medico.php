@@ -1,12 +1,14 @@
 <?php
 
-class Horario extends Model {
+class Horario_medico extends Model {
 
-    public static function listAll()
+    public static function listAll($id_medico)
     {
         $sql = new Sql();
 
-        $data = $sql->select("SELECT * FROM horario");
+        $data = $sql->select("SELECT * FROM horario WHERE id_medico = :id_medico ORDER by data_horario", array(
+            'id_medico' => $id_medico
+        ));
 
         return $data;
     }
@@ -27,13 +29,15 @@ class Horario extends Model {
     {
         $sql = new Sql();
 
+
         $results = $sql->query("INSERT INTO horario (id_medico, data_horario, horario_agendado, data_criacao) VALUES (:id_medico, :data_horario, 0, CURRENT_TIMESTAMP(6))", array(
             ':id_medico' => $id_medico,
             ':data_horario' => $horario_marcado
         ));
 
-        $results = $sql->select("SELECT * FROM medico WHERE id = LAST_INSERT_ID()");
+        $results = $sql->select("SELECT * FROM horario WHERE id = LAST_INSERT_ID()");
 
+        print_r($results);
         $this->setData($results[0]);
     }
 

@@ -2,6 +2,9 @@
 
 //Rota para o index.
 Route::set('index.php', function() {
+    //$horarios = Horario_medico::listAll(1);
+
+    //print_r($horarios);
     $_REQUEST['medicos'] = Medico::listAll();
     Home::createView('listagem-medicos-horarios');
 });
@@ -101,6 +104,41 @@ Route::set('editar-cadastro-medico-post', function() {
         header("Location: index.php");
         exit;
     }
+});
+
+Route::set('adicionar-remover-horario', function() {
+    //Condição para só ser possível vir aqui se for pelo formulário do index.
+    if (!empty($_POST))
+    {
+        Home::createView('adicionar-remover-horario');
+    }
+    //Caso alguém tente acessar direto, vai ser redirecionado.
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
+
+});
+
+Route::set('adicionar-remover-horario-post', function() {
+    //Condição para só ser possível vir aqui se for pelo formulário do adicionar-remover-horario.
+    if (!empty($_POST))
+    {
+        $name = $_POST['form-name'];
+        $hr = $_POST['form-horario'];
+        $id_medico = $_POST['id_medico'];
+    
+        $horario = new Horario_medico();
+        $horario->save($id_medico, $hr);
+    }
+    //Caso alguém tente acessar direto, vai ser redirecionado.
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
+
 });
 
 
