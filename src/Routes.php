@@ -27,6 +27,42 @@ Route::set('index.php', function() {
 
 });
 
+Route::set('change-horario-post', function() {
+    //Condição para só ser possível vir aqui se for pelo formulário do cadastro-medico.
+    if (!empty($_POST))
+    {
+        print_r($_POST);
+        $horario = new Horario();
+        $id = $_POST['horario_id'];
+
+        $horario->getHorario($id);
+        print_r($horario);
+
+        $condition = $horario->gethorario_agendado();
+
+        if ($condition == "0")
+        {
+            $condition = "1";
+        }
+        else
+        {
+            $condition = "0";
+        }
+
+        $horario->sethorario_agendado($condition);
+        $horario->update();
+
+        header("Location: index.php");
+        exit;
+
+    }
+    else
+    {
+        header("Location: index.php");
+        exit;
+    }
+});
+
 //Rota para a tela de cadastro-medico.
 Route::set('cadastro-medico', function() {
     CadastroMedico::createView('cadastro-medico');

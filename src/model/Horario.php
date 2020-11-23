@@ -73,19 +73,21 @@ class Horario extends Model {
         $sql = new Sql();
 
         $results = $sql->query(
-        "UPDATE medico
+        "UPDATE horario
         SET
-        nome = :nome,
-        senha = :senha,
+        id_medico = :id_medico,
+        data_horario = :data_horario,
+        horario_agendado = :horario_agendado,
         data_alteracao = CURRENT_TIMESTAMP(6)
         WHERE id = :id",
         array(
-            ':nome' => $this->getnome(),
-            ':senha' => $this->getsenha(),
-            ':id' => $this->getid()
+            ':id' => $this->getid(),
+            ':id_medico' => $this->getid_medico(),
+            ':data_horario' => $this->getdata_horario(),
+            ':horario_agendado' => $this->gethorario_agendado()
         ));
 
-        $results = $sql->select("SELECT * FROM medico WHERE id = :id", array(':id' => $this->getid()));
+        $results = $sql->select("SELECT * FROM horario WHERE id = :id", array(':id' => $this->getid()));
 
         $this->setData($results[0]);
     }
