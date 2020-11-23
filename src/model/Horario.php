@@ -2,11 +2,40 @@
 
 class Horario extends Model {
 
+    public static function listAllFromMedico($id_medico)
+    {
+        $sql = new Sql();
+
+        $data = $sql->select("SELECT * FROM horario WHERE id_medico = :id_medico ORDER by data_horario", array(
+            'id_medico' => $id_medico
+        ));
+
+        return $data;
+    }
+
+    public static function listAllDisponible()
+    {
+        $sql = new Sql();
+
+        $data = $sql->select("SELECT * FROM horario WHERE horario_agendado = 0 ORDER by data_horario");
+
+        return $data;
+    }
+
+    public static function listAllUnavailable()
+    {
+        $sql = new Sql();
+
+        $data = $sql->select("SELECT * FROM horario WHERE horario_agendado = 1 ORDER by data_horario");
+
+        return $data;
+    }
+
     public static function listAll()
     {
         $sql = new Sql();
 
-        $data = $sql->select("SELECT * FROM horario");
+        $data = $sql->select("SELECT * FROM horario ORDER by data_horario");
 
         return $data;
     }
@@ -27,13 +56,15 @@ class Horario extends Model {
     {
         $sql = new Sql();
 
+
         $results = $sql->query("INSERT INTO horario (id_medico, data_horario, horario_agendado, data_criacao) VALUES (:id_medico, :data_horario, 0, CURRENT_TIMESTAMP(6))", array(
             ':id_medico' => $id_medico,
             ':data_horario' => $horario_marcado
         ));
 
-        $results = $sql->select("SELECT * FROM medico WHERE id = LAST_INSERT_ID()");
+        $results = $sql->select("SELECT * FROM horario WHERE id = LAST_INSERT_ID()");
 
+        print_r($results);
         $this->setData($results[0]);
     }
 
@@ -65,7 +96,7 @@ class Horario extends Model {
 
         $results = $sql->query(
         "
-        DELETE FROM medico
+        DELETE FROM horario
         WHERE id = :id
         ",
         array (

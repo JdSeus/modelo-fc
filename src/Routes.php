@@ -2,11 +2,29 @@
 
 //Rota para o index.
 Route::set('index.php', function() {
-    //$horarios = Horario_medico::listAll(1);
 
+    $horarios = Horario::listAllDisponible();
+    $medicos = Medico::listAll();
+
+    //print_r($medicos);
     //print_r($horarios);
-    $_REQUEST['medicos'] = Medico::listAll();
+
+    $controller = new Home();
+    $order = $controller->orderView();
+
+    
+    //$order = $controller->orderMedicos($horarios);
+    //$dborder = $controller->orderDb($medicos);
+
+    //print_r($dborder);
+    //echo "<br>";
+    //print_r($order);
+
+    $_REQUEST['medicos'] = $medicos;
+    $_REQUEST['horarios'] = $horarios;
+    $_REQUEST['order'] = $order;
     Home::createView('listagem-medicos-horarios');
+
 });
 
 //Rota para a tela de cadastro-medico.
@@ -24,8 +42,8 @@ Route::set('cadastro-medico-post', function() {
         $email = $_POST['form-email'];  
         $password = $_POST['form-password'];  
 
-        $cadastro = new CadastroMedico();
-        $cadastro->makeNewCadastro($name, $email, $password);
+        $controller = new CadastroMedico();
+        $controller->makeNewCadastro($name, $email, $password);
 
         header("Location: index.php");
         exit;
@@ -74,10 +92,10 @@ Route::set('editar-cadastro-medico-post', function() {
         $newpassword = $_POST['form-new-password'];
         $id = $_POST['id'];
 
-        $atualizarCadastro = new EditarCadastro();
-        $atualizarCadastro->updateCadastro($name, $pastpassword, $newpassword, $id);
+        $controller = new EditarCadastro();
+        $controller->updateCadastro($name, $pastpassword, $newpassword, $id);
 
-        $erro = $atualizarCadastro->geterro();
+        $erro = $controller->geterro();
 
         //Se houver qualquer erro no atualizarCadastro, o usuário será redirecionado para o editar-cadastro novamente.
         if ($erro !== null)
@@ -130,7 +148,7 @@ Route::set('adicionar-horario-post', function() {
         $hr = $_POST['form-horario'];
         $id_medico = $_POST['id_medico'];
     
-        $horario = new Horario_medico();
+        $horario = new Horario();
         $horario->save($id_medico, $hr);
 
         $params = array(
@@ -156,7 +174,7 @@ Route::set('remover-horario-post', function() {
         $id_horario = $_POST["id_horario"];
         $id_medico = $_POST["id_medico"];
 
-        $horario = new Horario_medico();
+        $horario = new Horario();
         $horario->getHorario($id_horario);
         $horario->delete();
 

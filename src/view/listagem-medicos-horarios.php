@@ -1,6 +1,12 @@
 <?php
 
-    $medicos = $_REQUEST['medicos'];
+$medicos = $_REQUEST['medicos'];
+$horarios = $_REQUEST['horarios'];
+$order = $_REQUEST['order'];
+
+print_r($horarios);
+
+    
 ?>
 
 <!--<!DOCTYPE html> -->

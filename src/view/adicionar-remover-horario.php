@@ -8,7 +8,7 @@
     $medico = new Medico();
     $medico->getMedico($id_medico);
 
-    $horarios = Horario_medico::listAll($id_medico);
+    $horarios = Horario::listAllFromMedico($id_medico);
 
     echo "<br>";
     print_r($horarios);
@@ -71,8 +71,16 @@
                                         <input name="id_horario" type="hidden" value=<?php echo $horario["id"];  ?>></input>
                                         <input name="id_medico" type="hidden" value=<?php echo $horario["id_medico"];  ?>></input>
                                         <div>
-                                            <p><?php echo $horario["data_horario"] ?></p>
-                                            <button type="submit">Remover</button>
+                                            <p><?php echo formatarStringData(($horario["data_horario"])); ?></p>
+                                            <?php
+                                            if ($horario["horario_agendado"] == "0")
+                                            {
+                                                ?>
+                                                    <button type="submit">Remover</button>
+                                                <?php
+                                            }
+                                            ?>
+
                                         </div>
                                     </form>
                                 </div>
