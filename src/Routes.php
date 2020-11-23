@@ -6,19 +6,8 @@ Route::set('index.php', function() {
     $horarios = Horario::listAllDisponible();
     $medicos = Medico::listAll();
 
-    //print_r($medicos);
-    //print_r($horarios);
-
     $controller = new Home();
     $order = $controller->OrderView();
-
-    
-    //$order = $controller->orderMedicos($horarios);
-    //$dborder = $controller->orderDb($medicos);
-
-    //print_r($dborder);
-    //echo "<br>";
-    //print_r($order);
 
     $_REQUEST['medicos'] = $medicos;
     $_REQUEST['horarios'] = $horarios;

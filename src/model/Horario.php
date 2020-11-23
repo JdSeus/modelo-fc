@@ -56,7 +56,6 @@ class Horario extends Model {
     {
         $sql = new Sql();
 
-
         $results = $sql->query("INSERT INTO horario (id_medico, data_horario, horario_agendado, data_criacao) VALUES (:id_medico, :data_horario, 0, CURRENT_TIMESTAMP(6))", array(
             ':id_medico' => $id_medico,
             ':data_horario' => $horario_marcado
@@ -89,6 +88,7 @@ class Horario extends Model {
 
         $results = $sql->select("SELECT * FROM horario WHERE id = :id", array(':id' => $this->getid()));
 
+
         $this->setData($results[0]);
     }
 
@@ -105,6 +105,24 @@ class Horario extends Model {
             ':id' => $this->getid()
         )
         );
+    }
+
+    public static function isAfterNow($datahorario)
+    {
+        $now = new DateTime('now');
+
+        $data = new DateTime($datahorario);
+
+        $difference = (date_diff($now, $data));
+
+        if ($difference->invert == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
