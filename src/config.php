@@ -5,6 +5,8 @@
 */
 
 //define("URL", "http://localhost/modelo-teste-facilconsulta.com.br/src/");
+
+//Configuração do Fuso Horario
 date_default_timezone_set('America/Sao_Paulo');
 
 /*

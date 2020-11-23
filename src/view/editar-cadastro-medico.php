@@ -6,14 +6,10 @@
     if (isset($_POST['erro']))
     {
         $erro = $_POST['erro'];
-        echo $erro;
-        echo "<br>";
     }
     else
     {
         $erro = 0;
-        echo "sem erros";
-        echo "<br>";
     }
 ?>
 
@@ -29,8 +25,8 @@
 <body>
     <div class="container-fluid">
         <nav>
-            <div>
-                <button>Cadastro de Médico</button>
+        <div>
+                <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
         </nav>
 

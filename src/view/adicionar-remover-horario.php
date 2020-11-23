@@ -1,18 +1,13 @@
 <?php
 
-    print_r($_POST);
     $id_medico = $_POST['id_medico'];
-    echo "<br>";
-    echo $id_medico;
+
 
     $medico = new Medico();
     $medico->getMedico($id_medico);
 
     $horarios = Horario::listAllFromMedico($id_medico);
 
-    echo "<br>";
-    print_r($horarios);
-    echo "<br>";
 
 ?>
 
@@ -29,7 +24,7 @@
     <div class="container-fluid">
         <nav>
             <div>
-                <button>Cadastro de Médico</button>
+                <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
         </nav>
 

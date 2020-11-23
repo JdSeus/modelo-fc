@@ -2,6 +2,7 @@
 
 class Medico extends Model {
 
+	//Método que retorna um array com todos os médicos do banco de dados.
     public static function listAll()
     {
         $sql = new Sql();
@@ -11,11 +12,13 @@ class Medico extends Model {
         return $data;
     }
 
+    //Método que criptografa uma password usando md5.
     public static function criptoPassword($password)
     {
         return md5($password);
     }
 
+	//Método que recupera um médico do banco de dados e atribui seus valores para os parâmetros do Model.
     public function getMedico($id)
     {
         $sql = new Sql();
@@ -28,7 +31,7 @@ class Medico extends Model {
 
     }
 
-
+    //Método que salvará as informações desse Medico no banco de dados.
     public function save()
     {
         $sql = new Sql();
@@ -44,6 +47,7 @@ class Medico extends Model {
         $this->setData($results[0]);
     }
 
+    //Método que atualizará o médico no banco de dados com os valores atuais dos parâmetros.
     public function update()
     {
         $sql = new Sql();
@@ -66,6 +70,8 @@ class Medico extends Model {
         $this->setData($results[0]);
     }
 
+    //Método que deleta um médico do banco de dados.
+    //As referências não pediram um sistema de exclusão, então não chega a ser utilizado.
     public function delete()
     {
         $sql = new Sql();

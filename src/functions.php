@@ -29,6 +29,7 @@
         return $string;
     }
 
+    //Função utilizada no Template para facilitar o requerimento da folha de estilo.
     function getMetaAndStyle() {
         ?>
 
@@ -43,6 +44,7 @@
         <?php
     }
 
+	//Função utilizada no Template para facilitar o requerimento dos códigos Javascript
     function getJavaScript() {
     ?>
     <!-- FIM DO CÓDIGO -->

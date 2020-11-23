@@ -14,8 +14,8 @@
 <body>
     <div class="container-fluid">
         <nav>
-            <div>
-                <button>Cadastro de Médico</button>
+        <div>
+                <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
         </nav>
 
