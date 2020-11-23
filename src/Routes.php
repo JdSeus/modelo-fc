@@ -10,7 +10,7 @@ Route::set('index.php', function() {
     //print_r($horarios);
 
     $controller = new Home();
-    $order = $controller->orderView();
+    $order = $controller->OrderView();
 
     
     //$order = $controller->orderMedicos($horarios);

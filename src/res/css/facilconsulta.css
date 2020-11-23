@@ -266,14 +266,6 @@ div .lista-medicos {
     text-align: justify;
 }
 
-.horarios ul li button.disponivel:hover {    
-    background-color: #004768;
-}
-
-.horarios ul li button.marcado:hover {    
-    background-color:#0094CF;
-}
-
 div .horarios-cadastrados {
     margin-top: 2em;
     background-color: #fff;
