@@ -17,7 +17,7 @@ require_once("config.php");
 //Requerimento do arquivo de funções.
 require_once("functions.php");
 
-//Requerimento do arquivo de rotas. Fundamental para o funcionamento do teste;
+//Requerimento do arquivo de rotas. Fundamental para o funcionamento.
 require_once("Routes.php");
 
 ?>

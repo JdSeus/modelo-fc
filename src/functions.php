@@ -1,11 +1,5 @@
 <?php
 
-    function generatePassword(string $password) {
-
-        return md5($password);
-        
-    }
-
     function formatarDatetimeData($Data) {
         $date = $Data;
 
