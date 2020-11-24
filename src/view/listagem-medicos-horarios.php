@@ -3,10 +3,6 @@
 $medicos = $_REQUEST['medicos'];
 $horarios = $_REQUEST['horarios'];
 $order = $_REQUEST['order'];
-
-//print_r($medicos);
-//print_r($horarios);
-
     
 ?>
 

@@ -13,15 +13,15 @@
 
 <body>
     <div class="container-fluid">
-        <nav>
-        <div>
+        <nav class="menu">
+            <div>
                 <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
         </nav>
 
         <main>
             <div>
-                <form action="cadastro-medico-post" method="post">
+                <form class="criar-editar" action="cadastro-medico-post" method="post">
                     <h1>Cadastro de médico</h1>
                     <div>
                         <label for="form-name">Nome</label>

@@ -2,49 +2,25 @@
 
 //Rota para o index.
 Route::set('index.php', function() {
-
-    $horarios = Horario::listAllDisponible();
-    $medicos = Medico::listAll();
-
-    $controller = new Home();
-    $order = $controller->OrderView();
-
-    $_REQUEST['medicos'] = $medicos;
-    $_REQUEST['horarios'] = $horarios;
-    $_REQUEST['order'] = $order;
-    Home::createView('listagem-medicos-horarios');
-
+    Home::createHome();
 });
 
 Route::set('change-horario-post', function() {
-    //Condição para só ser possível vir aqui se for pelo formulário do cadastro-medico.
+    //Condição para só ser possível vir aqui se for pelo index.php.
     if (!empty($_POST))
     {
         print_r($_POST);
-        $horario = new Horario();
+
         $id = $_POST['horario_id'];
 
-        $horario->getHorario($id);
-        print_r($horario);
-
-        $condition = $horario->gethorario_agendado();
-
-        if ($condition == "0")
-        {
-            $condition = "1";
-        }
-        else
-        {
-            $condition = "0";
-        }
-
-        $horario->sethorario_agendado($condition);
-        $horario->update();
+        $controller = new Home();
+        $controller->changeHorario($id);
 
         header("Location: index.php");
         exit;
 
     }
+    //Caso alguém tente acessar direto, vai ser redirecionado.
     else
     {
         header("Location: index.php");
@@ -94,7 +70,7 @@ Route::set("editar-cadastro-medico", function() {
         $medico->getMedico($idmedico);
 
         $_REQUEST['medico'] = $medico;
-        Home::createView('editar-cadastro-medico');
+        Controller::createView('editar-cadastro-medico');
 
     }
     //Caso alguém tente acessar direto, vai ser redirecionado.

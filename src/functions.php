@@ -39,7 +39,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="res/css/bootstrap.min.css" type="text/css">
         <!-- Meu Estilo -->
-        <link rel="stylesheet" href="res/css/facilconsulta.css" type="text/css">
+        <link rel="stylesheet" href="res/css/mystyle.css" type="text/css">
 
         <?php
     }

@@ -4,6 +4,44 @@ class Home extends Controller {
 
     //Classe que controla o index.php
 
+    public static function createHome()
+    {
+        $horarios = Horario::listAllDisponible();
+        $medicos = Medico::listAll();
+    
+        $controller = new Home();
+        $order = $controller->OrderView();
+
+        $_REQUEST['medicos'] = $medicos;
+        $_REQUEST['horarios'] = $horarios;
+        $_REQUEST['order'] = $order;
+
+        Home::createView('listagem-medicos-horarios');
+    }
+
+    //Método que troca um horario de DISPONÍVEL para OCUPADO e VICE-VERSA.
+    public function changeHorario($id)
+    {
+
+        $horario = new Horario();
+
+        $horario->getHorario($id);
+
+        $condition = $horario->gethorario_agendado();
+
+        if ($condition == "0")
+        {
+            $condition = "1";
+        }
+        else
+        {
+            $condition = "0";
+        }
+
+        $horario->sethorario_agendado($condition);
+        $horario->update();
+    }
+
     //Método que ordena os médicos da página inicial.
     public function OrderView() {
 
