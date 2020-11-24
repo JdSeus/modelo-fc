@@ -1,1 +1,2 @@
-Os arquivos das Paginas Base com o Estilo estão desatualizados em relação ao res.
+Os arquivos das Paginas Base com o Estilo estão desatualizados em relação aos templates utilizados.
+Estes daqui serviram de base para a construção dos templates.

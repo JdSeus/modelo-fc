@@ -25,7 +25,14 @@ class CadastroMedico extends Controller {
 
         if ($this->checklenghts() == true)
         {
-            $this->registerMedico($this->name,$this->email,$this->password);
+            if ($this->checkEmail())
+            {
+                $this->registerMedico($this->name,$this->email,$this->password);
+            }
+            else
+            {
+                $this->erro = "E-mail inválido.";
+            }
         }
         //Caso os campos estejam com tamanho incorreto, é enviado o erro "Tamanhos incorretos". Lembrando que o Front-End já impede isso de ocorrer.
         else
@@ -33,6 +40,19 @@ class CadastroMedico extends Controller {
             $this->erro = "Tamanhos incorretos.";
         }
         
+    }
+
+    //Método que verifica se o email digitado é valido.
+    public function checkEmail()
+    {
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //Método que checa no BackEnd se os campos do form estão com o tamanho correto.
