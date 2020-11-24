@@ -46,8 +46,23 @@ Route::set('cadastro-medico-post', function() {
         $controller = new CadastroMedico();
         $controller->makeNewCadastro($name, $email, $password);
 
-        header("Location: index.php");
-        exit;
+        //Se não ocorreu nenhum erro, é redirecionado para a pagina inicial.
+        if ($controller->geterro() == null)
+        {
+            header("Location: index.php");
+            exit;
+        }
+        //Se ocorreu um erro, retorna para o cadastro-medico e mostra o erro.
+        else
+        {
+            //Definição do que será enviado no postAndGo.
+            $params = array(
+                "erro" => $controller->geterro()
+            );
+
+            Route::postAndGo("cadastro-medico",$params); 
+            exit; 
+        }
     }
     //Caso alguém tente acessar direto, vai ser redirecionado.
     else

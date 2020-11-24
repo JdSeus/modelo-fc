@@ -1,5 +1,13 @@
 <?php
 
+    if (isset($_POST['erro']))
+    {
+        $erro = $_POST['erro'];
+    }
+    else
+    {
+        $erro = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +46,17 @@
                         <input id="form-password" name="form-password" type="password" placeholder="Escolha uma senha forte e segura"
                             maxlength="255" required minlength="6">
                     </div>
+
+                    <?php
+                    if ($erro !== 0) {
+                        ?>
+                        <div class="message">
+                        <p><?php echo $erro ?></p>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
                     <div>
                         <button type="submit">Realizar Cadastro</button>
                     </div>

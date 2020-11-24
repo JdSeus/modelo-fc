@@ -8,7 +8,14 @@ class CadastroMedico extends Controller {
     private $email;
     private $password;
 
-    private $minlenght = false;
+
+    private $erro = null;
+
+    //get que entrega o erro ocorrido.
+    public function geterro()
+    {
+        return $this->erro;
+    }
 
     //Método que realiza o cadastro de um novo médico, checando se os campos estão com o tamanho correto.
     public function makeNewCadastro($form_name, $form_email, $form_password) {
@@ -19,6 +26,11 @@ class CadastroMedico extends Controller {
         if ($this->checklenghts() == true)
         {
             $this->registerMedico($this->name,$this->email,$this->password);
+        }
+        //Caso os campos estejam com tamanho incorreto, é enviado o erro "Tamanhos incorretos". Lembrando que o Front-End já impede isso de ocorrer.
+        else
+        {
+            $this->erro = "Tamanhos incorretos.";
         }
         
     }
