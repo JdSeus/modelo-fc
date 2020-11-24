@@ -37,14 +37,14 @@ class EditarCadastro extends Controller {
             //Se por acaso a senha não for igual, será enviado o erro "Senhas antiga errada".
             else
             {
-                $this->erro = "Senhas antiga errada";
+                $this->erro = "Senha antiga errada.";
             }
 
         }
         //Caso os campos estejam com tamanho incorreto, é enviado o erro "Tamanhos incorretos". Lembrando que o Front-End já impede isso de ocorrer.
         else
         {
-            $this->erro = "Tamanhos incorretos";
+            $this->erro = "Tamanhos incorretos.";
         }
     }
 

@@ -74,6 +74,7 @@ nav.menu button:hover {
     background-color: #004768;
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 /*FIM Menu do Topo*/
 
@@ -156,6 +157,31 @@ form.criar-editar button {
 
 form.criar-editar button:hover {
     background-color: #004768;
+    cursor: pointer;
+}
+
+form.criar-editar p {
+    display: block;
+    white-space: nowrap;
+
+    width: 60%;
+    height: 2em;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    margin: 0 auto;
+    margin-top: 0.5em;
+    
+    text-align: center;
+    
+    padding: 0;
+    padding-top: 0.2em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+
+    color: #fff;
+    background-color:#e62006;
 }
 
 form.criar-editar a {
@@ -225,6 +251,10 @@ div.lista-medicos div.infomedico form button {
     font-size: 1em;
 }
 
+div.lista-medicos div.infomedico form button:hover {
+    cursor: pointer;
+}
+
 div.lista-medicos div.horarios ul {
     padding:0;
     margin:0 auto;
@@ -259,6 +289,10 @@ div.lista-medicos div.horarios ul li button.disponivel {
     text-align: justify;
 }
 
+div.lista-medicos div.horarios ul li button.disponivel:hover {    
+    cursor: pointer;
+}
+
 div.lista-medicos div.horarios ul li button.marcado {    
     border: 1px solid transparent;
     border-radius: 5px;
@@ -272,6 +306,10 @@ div.lista-medicos div.horarios ul li button.marcado {
     background-color: #004768;
 
     text-align: justify;
+}
+
+div.lista-medicos div.horarios ul li button.marcado:hover {    
+    cursor: pointer;
 }
 /*FIM Lista de Médicos do template index.*/
 
@@ -370,12 +408,14 @@ div.criar-editar-horario div.horarios-cadastrados li div button:hover {
     background-color: unset;
     color: #aa0000;
     border: none;
+    cursor: pointer;
 }
 
 div.criar-editar-horario div.horarios-cadastrados li div button:active {
     background-color: unset;
     color: #aa0000;
     border: none;
+    cursor: pointer;
 }
 
 
