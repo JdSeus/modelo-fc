@@ -24,7 +24,7 @@
 
 <body>
     <div class="container-fluid">
-        <nav>
+        <nav class="menu">
         <div>
                 <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
@@ -32,7 +32,7 @@
 
         <main>
             <div>
-                <form action="editar-cadastro-medico-post" method="post">
+                <form class="criar-editar" action="editar-cadastro-medico-post" method="post">
                     <h1>Editar médico</h1>
                     <div>
                         <label for="form-name">Nome</label>

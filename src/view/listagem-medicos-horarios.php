@@ -17,7 +17,7 @@ $order = $_REQUEST['order'];
 
 <body>
     <div class="container-fluid">
-        <nav>
+        <nav class="menu">
             <div>
                 <a href="cadastro-medico"><button>Cadastro de Medico</button></a>
             </div>
@@ -39,13 +39,13 @@ $order = $_REQUEST['order'];
                     </div>
                     <div>
     
-                        <form class="infobutton" action="editar-cadastro-medico" method="POST">
+                        <form action="editar-cadastro-medico" method="POST">
                             <input type="hidden" name="id" value= "<?php echo $medico->getid(); ?>"></input>
                             <button>Editar Cadastro</button>
                         </form>
 
                             
-                        <form class="infobutton" action="adicionar-remover-horario" method="POST">
+                        <form action="adicionar-remover-horario" method="POST">
                             <input type="hidden" name="id_medico" value= "<?php echo $medico->getid(); ?>"></input>
                             <button>Configurar Horários</button>
                         </form>

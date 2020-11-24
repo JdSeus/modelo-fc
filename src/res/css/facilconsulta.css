@@ -1,26 +1,51 @@
 @font-face {
     font-family: signika;
-    src: url('res/fonts/Signika/Signika-VariableFont_wght.ttf');
+    src: url("../../res/fonts/Signika/Signika-VariableFont_wght.ttf");
 }
 
+
+/*Geral da Pagina*/
 body {
     background-color: rgb(239, 239, 239);
     font-family: signika, Arial, Helvetica, sans-serif;
     font-size: 1.3em;
-
 }
 
-nav {
+div.container-fluid {
+    padding: 0;
+}
+
+main {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+/*FIM Geral da Pagina*/
+
+/*Menu do Topo*/
+nav.menu {
     width: 100%;
     height: 5em;
-
     margin-bottom: 3em;
-
     background-color: #0094CF;
-
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-nav button {
+nav.menu div {
+    margin: 0 auto;
+}
+
+nav.menu a {
+    width: 0;
+    height: 0;
+    text-decoration: none;
+}
+
+nav.menu a:hover {
+    text-decoration: none;
+}
+
+nav.menu button {
     display: block;
     white-space: nowrap;
 
@@ -32,7 +57,7 @@ nav button {
 
     text-align: center;
 
-    transform: translateY(60%);
+    transform: translateY(50%);
 
     margin: 0 auto;
 
@@ -42,55 +67,46 @@ nav button {
     color: #0094CF;
     background-color: #fff;
     font-size: 1em;
-
+    text-decoration: none;
 }
 
-nav button:hover {
+nav.menu button:hover {
     background-color: #004768;
     color: #fff;
-
+    text-decoration: none;
 }
+/*FIM Menu do Topo*/
 
-nav button:active {
-    background-color: #004768;
-    color: #fff;
-
-}
-
-form {
+/*Editar e Criar Médico Templates*/
+form.criar-editar {
     margin-top: 3em;
     padding-top: 1em;
-    background-color: #ffffff;
-
+    background-color: #fff;
 }
 
-form h1 {
+form.criar-editar h1 {
     white-space: nowrap;
     font-size: 1.5em;
-    font-weight: bolder;
+    font-weight: 1000;
     text-align: center;
     color: #004768;
     padding-bottom: 0.5em;
-
 }
 
-form div {
+form.criar-editar div {
     white-space: nowrap;
-
     padding-left: 0.5em;
     padding-right: 0.5em;
     padding-bottom: 0.5em;
-
 }
 
-form label {
+form.criar-editar label {
     font-size: 0.9em;
     color: #004768;
     font-weight: 500;
-
 }
 
-form input {
+form.criar-editar input {
     display: block;
     white-space: nowrap;
 
@@ -106,16 +122,16 @@ form input {
     padding: 0.4em;
     padding-left: 0.6em;
 
-    font-size: 0.9em;
-    
-}
-
-form input::placeholder {
-    color: rgb(170,170,170);
+    font-size: 0.9em; 
+    color: #004768;
 
 }
 
-form button {
+form.criar-editar ::placeholder {
+    color: rgb(160, 160, 160);
+}
+
+form.criar-editar button {
     display: block;
     white-space: nowrap;
 
@@ -129,7 +145,6 @@ form button {
     margin-top: 2.5em;
     
     text-align: center;
-    vertical-align: middle;
 
     padding-left: 2.5em;
     padding-right: 2.5em;
@@ -139,17 +154,14 @@ form button {
 
 }
 
-form button:hover {
+form.criar-editar button:hover {
     background-color: #004768;
 }
 
-form button:active {
-    background-color: #004768;
-}
-
-form a {
+form.criar-editar a {
     display: block;
     
+    margin: 0 auto;
     margin-bottom: 0.5em;
 
     text-align: center;
@@ -159,20 +171,20 @@ form a {
     color: rgb(43, 166, 215);
 
 }
+/*FIM Editar e Criar Médico Templates*/
 
-.lista-medicos {
+/*Lista de Médicos do template index.*/
+div.lista-medicos {
     background-color: #fff;
-
-}
-
-
-div .lista-medicos {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     padding-bottom: 3em;
 }
 
+div.lista-medicos div.infomedico {
+    padding-top: 1em;
+}
 
-.infomedico div h1 {
+div.lista-medicos div.infomedico div h1 {
     display: block;
     white-space: nowrap;
 
@@ -184,12 +196,12 @@ div .lista-medicos {
     padding-top: 0.5em;
 
     color: #004768;
-    font-size: 1.1em;
+    font-size: 1.5em;
     font-weight: bolder;
 
 }
 
-.infomedico button {
+div.lista-medicos div.infomedico form button {
     display: block;
     white-space: nowrap;
 
@@ -211,19 +223,16 @@ div .lista-medicos {
     color: #0094CF;
     background-color:#fff;
     font-size: 1em;
-
 }
 
-.horarios ul {
+div.lista-medicos div.horarios ul {
     padding:0;
     margin:0 auto;
     list-style:none;
     text-align: center;
-
 }
 
-
-.horarios ul li {
+div.lista-medicos div.horarios ul li {
     display: inline-block;
     white-space: nowrap;
 
@@ -233,10 +242,9 @@ div .lista-medicos {
     margin-left: 0.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-
 }
 
-.horarios ul li button.disponivel {    
+div.lista-medicos div.horarios ul li button.disponivel {    
     border: 1px solid transparent;
     border-radius: 5px;
     
@@ -251,7 +259,7 @@ div .lista-medicos {
     text-align: justify;
 }
 
-.horarios ul li button.marcado {    
+div.lista-medicos div.horarios ul li button.marcado {    
     border: 1px solid transparent;
     border-radius: 5px;
     
@@ -265,40 +273,60 @@ div .lista-medicos {
 
     text-align: justify;
 }
+/*FIM Lista de Médicos do template index.*/
 
-div .horarios-cadastrados {
+/*Estilo do template adicionar-remover-horario*/
+
+div.criar-editar-horario {
     margin-top: 2em;
+    width: 100%;
+}
+
+div.criar-editar-horario form.criar-editar div:first-of-type input{
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    white-space: nowrap;
+    font-size: 1.2em;
+    font-weight: 1000;
+    text-align: start;
+    color: #004768;
+    height: auto;
+}
+
+#form-horario {
+    color: rgb(160, 160, 160);
+}
+
+div.criar-editar-horario div.horarios-cadastrados {
+    margin-top: 2em;
+    padding-top: 1em;
+    margin-bottom: 2em;
     background-color: #fff;
     width: 100%;
 }
 
-.horarios-cadastrados h1 {
-    display: block;
+div.criar-editar-horario div.horarios-cadastrados h1 {
     white-space: nowrap;
-
-    width: auto;
-
+    font-size: 1.5em;
+    font-weight: 1000;
     text-align: center;
-    
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-
     color: #004768;
-    font-size: 1.1em;
-    font-weight: bolder;
+    padding-bottom: 0.5em;
+    display: block;
 }
 
-.horarios-configurados ul{
+div.criar-editar-horario div.horarios-cadastrados ul{
     padding:0;
     margin:0 auto;
     list-style:none;
     text-align: center;
-    margin-bottom: 2em;
+    padding-bottom: 1em;
 }
 
-.horarios-configurados ul li {
+div.criar-editar-horario div.horarios-cadastrados li {
     white-space: nowrap;
-
     border-bottom: 1px solid rgb(170,170,170);;
 
     margin-right: 0.5em;
@@ -306,43 +334,30 @@ div .horarios-cadastrados {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 
-    color: #004768;
+    padding-right: 1em;
+    padding-left: 1em;
 
+    color: #004768;
     overflow: hidden;
-
 }
 
-form.lista-horarios {
-    margin: 0;
-    padding-top: 0.5em;
-
-    width: 100%;
-}
-form.lista-horarios h1 {
-    
-    white-space: nowrap;
-    font-size: 1.5em;
-    font-weight: bolder;
-    text-align: center;
-    color: #004768;
-    padding-bottom: 0.5em;
-}
-
-form.lista-horarios div p {
+div.criar-editar-horario div.horarios-cadastrados li div p {
     float: left;
 
     margin: 0;
     padding: 0;
 
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
 }
 
-form.lista-horarios div button {
+div.criar-editar-horario div.horarios-cadastrados li div button {
     float: right;
 
     margin: 0;
     padding: 0;
+
+    border: none;
 
     text-align: center;
     text-decoration: underline;
@@ -351,100 +366,108 @@ form.lista-horarios div button {
     color: #ff0000;
 }
 
-form.lista-horarios div button:hover {
+div.criar-editar-horario div.horarios-cadastrados li div button:hover {
     background-color: unset;
     color: #aa0000;
+    border: none;
 }
 
- form.infobutton {
-     
-    display: block;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
+div.criar-editar-horario div.horarios-cadastrados li div button:active {
+    background-color: unset;
+    color: #aa0000;
+    border: none;
 }
 
-form div.message p{
-    margin: 0 auto;
-    margin-bottom: 0;
-    margin-top: 1em;
 
-    text-align: center;
-    padding-top: 0.5em;
+/*FIM do Estilo do template adicionar-remover-horario/*
+    nav.menu button {
+        float: right;
+        margin-right: 26%;
+        font-size: 1em;
+        background-color: red;
+    }
 
-    border: 1px solid #000;
-    border-radius: 5px;
 
-    color: #fff;
-    background-color: #dd5858;
-    
-    width: 75%;
-    height: 3em;
-    
-}
+
+/* ////////////////////////////////////////////////////////////////////*/
+/*RESPONSIVIDADE*/
+/*////////////////////////////////////////////////////////////////////*/
 
  /*Small devices (landscape phones, 576px and up)*/
  @media (min-width: 576px) { 
-
-    nav button {
+    
+    /*Menu do Topo Responsividade*/
+    nav.menu button {
         float: right;
         margin-right: 26%;
         font-size: 1em;
     }
+    /*FIM Menu do Topo Responsividade*/
 
-    form {
+    /*Editar e Criar Médico Templates Responsividade*/
+    form.criar-editar {
         width: 60%;
         margin: 0 auto;
     }
-
-    div .horarios-cadastrados {
-        width: 60%;
-        margin: 0 auto;
-        margin-top: 2em;
-        margin-bottom: 3em;
-    }
-    
+    /*FIM Editar e Criar Médico Templates Responsividade*/
 
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    
+
+    /*Editar e Criar Médico Templates Responsividade*/
+    form.criar-editar {
+        width: 60%;
+        margin: 0 auto;
+    }
+    /*FIM Editar e Criar Médico Templates Responsividade*/
+
+    /*Estilo do template adicionar-remover-horario Responsividade*/
+    div.criar-editar-horario div.horarios-cadastrados {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 2em;
+        margin-bottom: 3em;
+    }
+    /*FIM do Estilo do template adicionar-remover-horario Responsividade/*
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
-    form {
+    /*Editar e Criar Médico Templates Responsividade*/
+    form.criar-editar {
         width: 40%;
         margin: 0 auto;
     }
+    /*FIM Editar e Criar Médico Templates Responsividade*/
 
-    .lista-medicos {
+    /*Lista de Médicos do template index Responsividade.*/
+    div.lista-medicos {
         width: 70%;
         margin: 0 auto;
+        margin-bottom: 2em;
+        padding-bottom: 2em;
     }
 
-
-    .infomedico {
+    div.lista-medicos div.infomedico {
         overflow: hidden;
+        padding-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 1em;
     }
 
-    .infomedico div h1 {
+    div.lista-medicos div.infomedico div h1 {
+        padding: 0;
+        margin: 0;
+
         float: left;
-
-        margin-left: 1em;
-        margin-right: 1em;
-        margin-top: 0.5em;
+        font-size: 1.5em;
     }
 
-    .infomedico div:nth-child(2){
-        float: right;
-    }
-
-    form.infobutton {
-     
+    div.lista-medicos div.infomedico div form {
         display: inline-block;
         padding: 0;
         margin: 0;
@@ -452,62 +475,68 @@ form div.message p{
         height: auto;
     }
 
-    .infomedico button {
+    div.lista-medicos div.infomedico div:nth-child(2){
+        float: right;
+    }
+
+    div.lista-medicos div.infomedico form button {
+        margin: 0;
 
         display: inline-block;
-
-        margin-bottom: 1em;
-        margin-right: 2em;
-        margin-top: 2em;
-
+        text-align: center;
         vertical-align: middle;
-
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
+    /*FIM Lista de Médicos do template index Responsividade.*/
 
-    .horarios li {
-        font-size: 0.8em;
-    }
-
-    .form-left {
+    /*Estilo do template adicionar-remover-horario Responsividade */
+    div.criar-editar-horario form.criar-editar{
         float: left;
+        width: 40%;
         margin-left: 9%;
     }
-    
-    div .horarios-cadastrados {
+    /*FIM do Estilo do template adicionar-remover-horario Responsividade/*
+
+    /*FIM do Estilo do template adicionar-remover-horario Responsividade*/
+    div.criar-editar-horario div.horarios-cadastrados {
         float: right;
         width: 40%;
         margin-top: 0;
         margin-right: 9%;
     }
-
-    .horarios-configurados {
-        margin-top: 0;
-    }
+    /*FIM do Estilo do template adicionar-remover-horario Responsividade/*
     
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
-    form {
+    /*Editar e Criar Médico Templates Responsividade*/
+    form.criar-editar {
         width: 25%;
         margin: 0 auto;
     }
+    /*FIM Editar e Criar Médico Templates Responsividade*/
 
-    .form-left {
+    /*Lista de Médicos do template index Responsividade.*/
+    div.lista-medicos {
+        width: 55%;
+    }
+    /*FIM Lista de Médicos do template index Responsividade.*/
+
+    /*Estilo do template adicionar-remover-horario Responsividade */
+    div.criar-editar-horario form.criar-editar{
+        float: left;
         width: 30%;
         margin-left: 19%;
     }
 
-    div .horarios-cadastrados {
+    div.criar-editar-horario div.horarios-cadastrados {
+        float: right;
         width: 30%;
+        margin-top: 0;
         margin-right: 19%;
     }
-
-    .lista-medicos {
-        width: 55%;
-        margin: 0 auto;
-    }
+    /*FIM do Estilo do template adicionar-remover-horario Responsividade/*
 
 }
